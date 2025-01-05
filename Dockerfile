@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 5000
 
 # Run the Flask application (adjust command if needed)
-CMD ["flask", "run", "--host=0.0.0.0:5000"]
+CMD ["flask", "run", "--host=0.0.0.0"]
