@@ -21,6 +21,7 @@ jobs:
           IMAGE_NAME: my-image
         run: |
           docker build -t mahimani/$IMAGE_NAME .
+          docker run mahimani/$IMAGE_NAME
           docker push mahimani/$IMAGE_NAME:latest
 
   test:
@@ -40,4 +41,3 @@ jobs:
         run: |
           pip install pytest
           pytest test.py
-          docker run mahimani/$IMAGE_NAME
