@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('build') {
+            steps {
+                echo 'build stage '
+                git url:"https://github.com/maheshmahi9597/jenkins-cicd.git", branch:"main"
+                
+                echo "build stage complete"
+            }
+        }
+        stage('code') {
+            steps {
+                echo 'code stage '
+                sh "docker build -t mahimani/techno-demo1-erjalamahesh:latest ."
+                
+                echo "build image successfull"
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'test stage '
+                sh 'docker run -d -p 5000:5000 mahimani/techno-demo1-erjalamahesh
+                
+            }
+        }
+    }
+}
